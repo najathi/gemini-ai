@@ -1,15 +1,15 @@
-const generativeContentFrm = document.querySelector('#generative-content-frm');
+const generativeChatFrm = document.querySelector('#generative-chat-frm');
 const chatHistory = document.querySelector('.chat-history');
 
-generativeContentFrm.addEventListener('submit', function (e) {
+generativeChatFrm.addEventListener('submit', function (e) {
   e.preventDefault();
   var formData = new FormData(this);
   var formDataObj = Object.fromEntries(formData.entries());
 
   displayMessage('human', formDataObj.prompt);
-  requestGemini(formDataObj).then(function (data) {
+  requestGeminiChat(formDataObj).then(function (data) {
     displayMessage('ai', data.text);
-    generativeContentFrm.reset();
+    generativeChatFrm.reset();
   });
 });
 
@@ -23,8 +23,8 @@ function displayMessage(sender, message) {
   chatHistory.scrollTop = chatHistory.scrollHeight;
 }
 
-async function requestGemini(formData) {
-  var response = await fetch('/api/gemini', {
+async function requestGeminiChat(formData) {
+  var response = await fetch('/api/gemini/multi-turn-conversations', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

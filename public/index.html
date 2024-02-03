@@ -6,25 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gemini Ai - Najathi</title>
 
-  <link rel="stylesheet" href="./styles/app.css">
+  <link rel="stylesheet" href="./styles/index.css">
 </head>
 
 <body>
   <div class="chat-container">
-    <header class="chat-header">
-      Gemini AI - Najathi
-    </header>
-    <main class="chat-body">
-      <div class="chat-history">
-      </div>
-      <form id="generative-content-frm" class="chat-input">
-        <input type="text" id="prompt" name="prompt" placeholder="Enter your name">
-        <button id="submit-button" type="submit">Submit</button>
-      </form>
-    </main>
+    <form id="generative-content-frm">
+      <input type="text" id="prompt" name="prompt" placeholder="Enter your text">
+      <button id="submit-button" type="submit">Submit</button>
+    </form>
+    <div class="chat-history">
+    </div>
   </div>
 
-  <script src="./scripts/app.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
